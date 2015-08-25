@@ -6,9 +6,12 @@
 package com.example.jpa.entities;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -24,6 +27,10 @@ public class Pais implements Serializable {
     
     @Column(name = "nombre_pais")
     private String nombrePais;
+    
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPais")
+    private List<Departamentos> listDepartamentos;
 
     public String getIdPais() {
         return idPais;
@@ -40,5 +47,14 @@ public class Pais implements Serializable {
     public void setNombrePais(String nombrePais) {
         this.nombrePais = nombrePais;
     }
-        
+    
+    public List<Departamentos> getListDepartamentos(){
+        return listDepartamentos;
+    }
+    
+    public void setListDepartamentos(List<Departamentos> listDepartamentos){
+        this.listDepartamentos = listDepartamentos;
+    }
+    
+    
 }

@@ -11,21 +11,24 @@
 
             <button type="button" 
                     jsf:outcome="Create">
-                Crear País
+                Crear Departamento
             </button>
             <button type="button" 
                     jsf:outcome="/index">
                Inicio
             </button><br/>
-            <p:dataTable value="#{paisController.itemsPais}" 
-                         var="itemPais" 
+            <p:dataTable value="#{departamentoController.itemsDepartamentos}" 
+                         var="itemDepartamento" 
                          paginator="true"
                          rows="10">
-                <p:column headerText="ID País">
-                    <h:outputText value="#{itemPais.idPais}"/>
+                <p:column headerText="ID Departamento">
+                    <h:outputText value="#{itemDepartamento.idDepartamento}"/>
                 </p:column>
-                <p:column headerText="Nombre País">
-                    <h:outputText value="#{itemPais.nombrePais}"/>
+                <p:column headerText="Nombre Departamento">
+                    <h:outputText value="#{itemDepartamento.nombreDepartamento}"/>
+                </p:column>
+                 <p:column headerText="Pais">
+                     <h:outputText value="#{itemDepartamento.idPais}"/>
                 </p:column>
             </p:dataTable>
         </ui:define>
