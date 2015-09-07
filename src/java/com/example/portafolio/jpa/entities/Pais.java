@@ -3,34 +3,42 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.jpa.entities;
+package com.example.portafolio.jpa.entities;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author leoandresm
  */
 @Entity
-@Table(name = "PAISES")
+@Table(name = "PAISES") //Tabla base de datos (Tener en cuenta Mayúsculas y Minúsculas
 public class Pais implements Serializable {
-    @Id
-    @Column(name = "id_pais")
+    
+    @Id //Clave Primaria
+    @Column (name = "id_pais") //nombre de la columna en la base de datos
     private String idPais;
     
-    @Column(name = "nombre_pais")
+    @Column (name = "nombre_pais")
+    @Size(max = 60)
     private String nombrePais;
     
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPais")
-    private List<Departamentos> listDepartamentos;
+    @OneToMany(mappedBy = "pais")
+    private List<Departamento> departamentos;
+
+    public Pais() {
+    }
+
+    public Pais(String idPais) {
+        this.idPais = idPais;
+    }
 
     public String getIdPais() {
         return idPais;
@@ -47,14 +55,13 @@ public class Pais implements Serializable {
     public void setNombrePais(String nombrePais) {
         this.nombrePais = nombrePais;
     }
-    
-    public List<Departamentos> getListDepartamentos(){
-        return listDepartamentos;
+
+    public List<Departamento> getDepartamentos() {
+        return departamentos;
+    }
+
+    public void setDepartamentos(List<Departamento> departamentos) {
+        this.departamentos = departamentos;
     }
     
-    public void setListDepartamentos(List<Departamentos> listDepartamentos){
-        this.listDepartamentos = listDepartamentos;
-    }
-    
-    
-}
+}//Fin clase Pais

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.jsf.controllers;
+package com.example.portafolio.jsf.controllers;
 
-import com.example.jpa.entities.Pais;
-import com.example.jpa.sessions.PaisSession;
+import com.example.portafolio.jpa.entities.Pais;
+import com.example.portafolio.jpa.sessions.PaisSession;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;

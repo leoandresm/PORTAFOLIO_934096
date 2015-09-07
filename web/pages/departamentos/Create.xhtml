@@ -23,7 +23,7 @@
                 
                 <h:selectOneMenu >
                     <f:selectItem itemLabel="Seleccione Pais"
-                                  noSelectionOption="true"
+                                  noSelectionOption="true" 
                                   itemDisabled="true" />
                     <f:selectItems value="#{paisController.itemsPais}"
                                    var="dep"
@@ -32,7 +32,7 @@
                 </h:selectOneMenu>
                 
                 <button type="submit" 
-                        jsf:actionListener="#{paisController.create}" 
+                        jsf:actionListener="#{departamentoController.create}" 
                         jsf:action="List">
                     Guardar
                 </button>

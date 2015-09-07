@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.jpa.sessions;
+package com.example.portafolio.jpa.sessions;
 
-import com.example.jpa.entities.Pais;
+import com.example.portafolio.jpa.entities.CalificacionServicio;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -17,27 +17,27 @@ import javax.persistence.criteria.CriteriaQuery;
  * @author leoandresm
  */
 @Stateless
-public class PaisSession {
+public class CalificacionServicioSession {
 
    @PersistenceContext
    private EntityManager entityManager;
    
-   public void create(Pais pais){
-       entityManager.persist(pais);
+   public void create(CalificacionServicio calificacionServicio){
+       entityManager.persist(calificacionServicio);
    }  
    
-   public void edit(Pais pais) {
-       entityManager.merge(pais);
+   public void edit(CalificacionServicio calificacionServicio) {
+       entityManager.merge(calificacionServicio);
    }
    
-   public void remove(Pais pais) {
-       entityManager.remove(pais);
+   public void remove(CalificacionServicio calificacionServicio) {
+       entityManager.remove(calificacionServicio);
    }
    
-   public List<Pais> findAll(){
+   public List<CalificacionServicio> findAll(){
        CriteriaQuery cq =
                entityManager.getCriteriaBuilder().createQuery();
-       cq.select(cq.from(Pais.class));
+       cq.select(cq.from(CalificacionServicio.class));
        return entityManager.createQuery(cq).getResultList();
    }
            

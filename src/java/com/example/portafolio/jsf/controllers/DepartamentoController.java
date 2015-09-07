@@ -1,7 +1,7 @@
-package com.example.jsf.controllers;
+package com.example.portafolio.jsf.controllers;
 
-import com.example.jpa.entities.Departamentos;
-import com.example.jpa.sessions.DepartamentoSession;
+import com.example.portafolio.jpa.entities.Departamento;
+import com.example.portafolio.jpa.sessions.DepartamentoSession;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -15,17 +15,17 @@ public class DepartamentoController {
     @EJB
     private DepartamentoSession departamentoSession;
 
-    private Departamentos selectedDepartamento;
-    private List<Departamentos> itemsDepartamentos = null;
+    private Departamento selectedDepartamento;
+    private List<Departamento> itemsDepartamentos = null;
     
-    public Departamentos getSelectedDepartamento() {
+    public Departamento getSelectedDepartamento() {
         if (selectedDepartamento == null) {
-            selectedDepartamento = new Departamentos();
+            selectedDepartamento = new Departamento();
         }
         return selectedDepartamento;
     }
 
-    public void setSelectedDepartamento(Departamentos selectedDepartamento) {
+    public void setSelectedDepartamento(Departamento selectedDepartamento) {
         this.selectedDepartamento = selectedDepartamento;
     }
 
@@ -33,7 +33,7 @@ public class DepartamentoController {
         return departamentoSession;
     }
 
-    public List<Departamentos> getItemsDepartamentos() {
+    public List<Departamento> getItemsDepartamentos() {
         if (itemsDepartamentos == null) {
             try {
                 itemsDepartamentos = getDepartamentoSession().findAll();

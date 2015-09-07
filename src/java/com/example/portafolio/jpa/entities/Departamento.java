@@ -1,4 +1,4 @@
-package com.example.jpa.entities;
+package com.example.portafolio.jpa.entities;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,7 +16,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table ( name = "DEPARTAMENTOS")
-public class Departamentos implements Serializable {
+public class Departamento implements Serializable {
     
     @Id
     @Column (name = "id_departamento")
@@ -27,15 +27,16 @@ public class Departamentos implements Serializable {
     
     @ManyToOne
     @JoinColumn(name = "id_pais")
-    private Pais idPais;
+    private Pais pais;
     
-    @OneToMany(mappedBy = "idDepartamento")
+    @OneToMany(mappedBy = "departamento")
     private List<Ciudad> ciudades;
+    
 
-    public Departamentos() {
+    public Departamento() {
     }
 
-    public Departamentos(int idDepartamento) {
+    public Departamento(int idDepartamento) {
         this.idDepartamento = idDepartamento;
     }
 
@@ -55,12 +56,12 @@ public class Departamentos implements Serializable {
         this.nombreDepartamento = nombreDepartamento;
     }
 
-    public Pais getIdPais() {
-        return idPais;
+    public Pais getPais() {
+        return pais;
     }
 
-    public void setIdPais(Pais idPais) {
-        this.idPais = idPais;
+    public void setPais(Pais pais) {
+        this.pais = pais;
     }
 
     public List<Ciudad> getCiudades() {
@@ -69,7 +70,6 @@ public class Departamentos implements Serializable {
 
     public void setCiudades(List<Ciudad> ciudades) {
         this.ciudades = ciudades;
-    }
-    
+    }    
     
 }
