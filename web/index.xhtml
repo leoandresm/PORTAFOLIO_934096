@@ -8,17 +8,38 @@
         <title>Facelet Title</title>
     </head>
     <body>
-        <a jsf:outcome="/pages/paises/List">Lista Países</a>
-        <br/>
-        <a jsf:outcome="/pages/departamentos/List">Lista Departamentos</a>
-        <br/>
-        <a jsf:outcome="/pages/ciudades/List">Lista Ciudades</a>
-        <br/>
-        <a jsf:outcome="/pages/roles/List">Lista Roles</a>
-        <br/>
-        <a jsf:outcome="/pages/tiposServicios/List">Lista Tipos de Servicio</a>
-        <br/>
-        <a jsf:outcome="/pages/usuarios/List">Lista Usuarios</a>
+        <h:panelGroup rendered="#{!loginController.authenticated}">
+            <form jsf:id="loginForm">
+                <input type="email"
+                       placeholder="Correo Electrónico"
+                       required="true"
+                       jsf:value="#{loginController.username}"/>
+                <input type="password"
+                       placeholder="Contraseña"
+                       required="true"
+                       jsf:value="#{loginController.password}"/>
+                <button type="submit"
+                        jsf:action="#{loginController.login}">
+                    Ingresar 
+                </button>
+            </form>
+        </h:panelGroup>
+        <h:panelGroup rendered="#{loginController.authenticated}">
+            <a jsf:outcome="/pages/administrador/paises/List">Lista Países</a>
+            <br/>
+            <a jsf:outcome="/pages/administrador/departamentos/List">Lista Departamentos</a>
+            <br/>
+            <a jsf:outcome="/pages/administrador/ciudades/List">Lista Ciudades</a>
+            <br/>
+            <a jsf:outcome="/pages/administrador/roles/List">Lista Roles</a>
+            <br/>
+            <a jsf:outcome="/pages/administrador/tiposServicios/List">Lista Tipos de Servicio</a>
+            <br/>
+            <a jsf:outcome="/pages/administrador/usuarios/List">Lista Usuarios</a>
+            <form jsf:id="logoutForm">
+                <a jsf:action="#{loginController.logout}">Salir</a>
+            </form>
+        </h:panelGroup>
     </body>
 </html>
 
